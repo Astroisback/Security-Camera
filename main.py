@@ -5,61 +5,61 @@ import os
 
 app = Flask(__name__)
 
-# Initialize the camera
+
 video_capture = cv2.VideoCapture(0)
 video_capture.set(cv2.CAP_PROP_FPS, 28)  # Set the frame rate to 28 fps
 frame_size = (int(video_capture.get(3)), int(video_capture.get(4)))
 
-# Load Haar cascades for face and body detection
+
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
 body_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_fullbody.xml")
 
-# Create the "detected_faces" and "recordings" folders if they don't exist
+
 if not os.path.exists("detected_faces"):
     os.makedirs("detected_faces")
 if not os.path.exists("recordings"):
     os.makedirs("recordings")
 
-# Function to generate frames with real-time detection
+
 def generate_frames():
     global video_capture
     is_recording = False
     video_writer = None
     recording_start_time = None
-    SECONDS_TO_RECORD = 10  # Change this value to adjust the recording duration
+    SECONDS_TO_RECORD = 10  
 
     while True:
         success, frame = video_capture.read()
         if not success:
             break
         else:
-            # Get current date and time
+           
             current_datetime = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
-            # Detect faces and bodies
+            
             grayscale_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             faces = face_cascade.detectMultiScale(grayscale_frame, 1.3, 5)
             bodies = body_cascade.detectMultiScale(grayscale_frame, 1.3, 5)
 
-            # Draw rectangles around detected faces
+           
             for (x, y, w, h) in faces:
                 cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
-                # Save screenshot of the face
+              
                 face_image = frame[y:y+h, x:x+w]
                 cv2.imwrite(f"detected_faces/face_{current_datetime}.jpg", face_image)
 
-                # Start recording if a face is detected and not already recording
+               
                 if not is_recording:
                     is_recording = True
                     recording_start_time = datetime.datetime.now()
                     fourcc = cv2.VideoWriter_fourcc(*"mp4v")
                     video_writer = cv2.VideoWriter(f"recordings/recording_{current_datetime}.mp4", fourcc, 28.0, frame_size)
 
-            # Draw rectangles around detected bodies
+            
             for (x, y, w, h) in bodies:
                 cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
-            # Add current date, time, and seconds to the frame
+           
             cv2.putText(frame, current_datetime, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
 
             # Record video if a face was detected
@@ -70,11 +70,11 @@ def generate_frames():
                     is_recording = False
                     video_writer.release()
 
-            # Encode frame to JPEG format
+           
             ret, buffer = cv2.imencode('.jpg', frame)
             frame = buffer.tobytes()
 
-            # Yield the frame with date, time, and seconds for streaming
+        
             yield (b'--frame\r\n'
                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
