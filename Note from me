@@ -2,7 +2,7 @@ Hey there!
 
 I've been working on improving the code, and I'm excited to share that it's now fully functional and ready for deployment over a local network or Wi-Fi. While this is a significant milestone, I understand that it's not enough, and there's still room for growth.
 
-One exciting possibility is using the Port Forwarding feature in VSCode to stream the video feed over the internet. This would allow remote access to the camera stream from anywhere in the world.
+One exciting possibility is using the 'Port Forwarding' feature in VSCode to stream the video feed over the internet. This would allow remote access to the camera stream from anywhere in the world.
 
 Moving forward, I plan to continue enhancing the project by adding more features. I'm open to suggestions from the community, so please feel free to share any ideas or improvements you might have in mind.
 
