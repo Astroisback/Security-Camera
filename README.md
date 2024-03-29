@@ -12,7 +12,7 @@ This project demonstrates real-time camera streaming and recording using Flask. 
 
 1. Clone this repository:
 
-git clone [Link](https://github.com/Astroisback/Security-Camera/)
+git clone https://github.com/Astroisback/Security-Camera/
 
 
 2. Install the required dependencies:
