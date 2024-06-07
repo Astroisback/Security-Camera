@@ -19,7 +19,7 @@ pip install opencv-python Flask
 
 ## Usage
 
-1. Run the main file.
+1. Run the app file.
 
 2. Open a web browser and navigate to `http://localhost:5000/` to view the live camera stream.
 
