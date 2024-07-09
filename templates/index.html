@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Camera Controls</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/alphardex/aqua.css@master/dist/aqua.min.css'><link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="stars">
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+</div>
+<!-- partial -->
+  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Information</title>
+    <style>
+        /* Your existing CSS styles go here */
+
+        /* Specific styles for the new container */
+        .system-info-container {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Other content goes here -->
+
+    <!-- New container for system information -->
+    <div class="system-info-container">
+        <h1>System Information</h1>
+        <ul>
+            <li>CPU Usage: <span class="info">{{ system_info['cpu_percent'] }}%</span></li>
+            <li>Total Memory: <span class="info">{{ system_info['total_memory'] }} GB</span></li>
+            <li>Used Memory: <span class="info">{{ system_info['used_memory'] }} GB</span></li>
+        </ul>
+    </div>
+</body>
+</html>
+<body>
+    <button onclick="stopVideoCapture()" style=
+    "position: absolute;
+     bottom: 0;
+     left: 90%; 
+     transform: 
+     translateX(-50%); 
+     background-color:red;color:white;">
+    Emergency Exit
+</button>
+</div>
+    <script>
+        function startVideoCapture() {
+            fetch('/start')
+                .then(response => response.text())
+                .then(data => console.log(data));
+        }
+
+        function stopVideoCapture() {
+            fetch('/stop')
+                .then(response => response.text())
+                .then(data => console.log(data));
+        }
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera Resolution Settings</title>
+    <style>
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Camera Settings</h1>
+        <form id="resolutionForm" action="/set_resolution" method="post">
+            <label for="resolution">Resolution (Width x Height):</label>
+            <input type="text" id="resolution" name="resolution" placeholder="e.g., 640x480" required>
+            <button type="submit" onclick="showSpinnerAndNotification()">Set Resolution</button>
+            <div id="html-spinner"></div>
+        </form>
+        
+        <a href="{{ url_for('video_feed') }}" target="_blank">
+            <img src="{{ url_for('video_feed') }}" id="videoStream" alt="Live Stream" width="{{ width }}" height="{{ height }}">
+        </a>
+    <div id="chat-notification">Camera Feed is restarting...</div>
+</head>
+<body>
+    <video id="remoteVideo" autoplay></video>
+    <a href="{{ url_for('video_feed') }}" target="_self">Direct link</Link></a>
+</body>
+    <script>
+        function showSpinnerAndNotification() {
+            var spinner = document.getElementById('html-spinner');
+            var notification = document.getElementById('chat-notification');
+
+            // Show spinner
+            spinner.style.display = 'block';
+
+            // Show notification
+            notification.style.display = 'block';
+
+            // Hide notification after 15 seconds (15000 milliseconds)
+            setTimeout(function() {
+                notification.style.display = 'none';
+            }, 15000); // 15000 milliseconds (15 seconds)
+        }
+    </script>
+</body>
+</html>
+
+
+
