@@ -22,6 +22,8 @@ pip install opencv-python Flask
 1. Run the 'app.py' file.
 
 2. Open a web browser and navigate to `http://localhost:5000/` to view the live camera stream.
+   Note- If you wish to access the stream from internet not limited to your wifi. You can use port forwarding feature on VScode. This has nothing to do with opeing port on your router so you aee safe!
+   You may start a pull request, I'll help you do it.
 
 
 ## Features
@@ -39,6 +41,9 @@ pip install opencv-python Flask
 - `detected_faces`: Contains screenshots of detected faces.
 - `recordings`: Contains recorded video files when faces are detected.
 
-## Contributing
+
+## Contributing and Feature request.
 
 Contributions are welcome! Feel free to open an issue or submit a pull request.
+I'm constantly looking to add new feature but i need your suggestion, I'm blank what to add next.
+
