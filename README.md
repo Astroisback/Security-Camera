@@ -35,6 +35,7 @@ pip install opencv-python Flask
 - Video recording when faces are detected, with recordings saved in the "recordings" folder.
 - Adjustable frame rate for streaming and recording.
 - Recording duration can be set (default is 10 seconds after the last face detection).
+- Listen to Audio from the camera (In development)
 
 ## Folder Structure
 
