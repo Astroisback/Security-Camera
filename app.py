@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, Response , jsonify
-from camera import *  # Import functions from camera.py
-from utlis import *  # Import functions from system.py
+from camera import *  
+from utlis import *  
 import time
 import datetime
 import os
@@ -47,4 +47,4 @@ if __name__ == "__main__":
     start_video_capture(640, 480)  # Start video capture initially
     app.run(debug=True, host='0.0.0.0')
 
-    # ahh save file over SMBx
+   
