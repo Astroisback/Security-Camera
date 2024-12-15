@@ -48,3 +48,5 @@ pip install opencv-python Flask
 Contributions are welcome! Feel free to open an issue or submit a pull request.
 I'm constantly looking to add new feature but i need your suggestion, I'm blank what to add next.
 
+Currently this project is on hold.
+
